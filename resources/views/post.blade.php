@@ -12,7 +12,13 @@
                         class="text-decoration-none">{{ $post->category->name }}</a>
                 </p>
 
-                <img src="https://random.imagecdn.app/1200/400" alt="{{ $post->category->name }}" class="img-fluid">
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid"
+                        alt="{{ $post->category->name }}">
+                @else
+                    <img src="https://random.imagecdn.app/1200/400" alt="{{ $post->category->name }}"
+                        class="img-fluid">
+                @endif
 
                 <article class="my-3 fs-5">
                     {!! $post->body !!}
